@@ -20,12 +20,12 @@ function TodoList() {
     }
     setTodos((
       prev //previous state
-    ) => prev.map((item) => (item.id === newId ? newValue : item))); //newValue & item is a whole object
+    ) => prev.map((item) => (item.id === newId ? newValue : item))); //newValue & item is a whole object ?
   };
   /*TODO: how does React evaluate newId ?
 Hint:
 - Debugging with console.log after adding new todo:
-if new value is the same as the previous one, id changed
+if new value is exactly the same as the previous one, id changed
 if new value passed the regex condition, id changed 
 if new value is a truely new value, id changed
 if new value is empty, id STILL */
@@ -38,7 +38,7 @@ if new value is empty, id STILL */
   const completeTodo = (id) => {
     let updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
+        todo.isComplete = !todo.isComplete; //toggle complete status after every clicks
       }
       return todo;
     });
